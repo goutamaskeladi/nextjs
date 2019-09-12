@@ -7,7 +7,7 @@ const index = () => {
         <div>
             <h2>Welcome to Next.js</h2>
             <p>Click here to see the <Link href="/users"><a>users</a></Link></p>
-            <button onClick={() => Router.push('/users')}>Check the users</button>
+            <button onClick={() => Router.push('/users')}>Check the users 👋</button>
             <style global jsx>{
                  `
                  body {
