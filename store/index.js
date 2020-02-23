@@ -1,11 +1,11 @@
 import { createStore } from 'redux';
 
 const initialState = {
-	count: 3
+	count: 3,
+	inputValue: ''
 };
 
 const reducer = (state = initialState, action) => {
-	console.log('reducer running', action);
 	switch (action.type) {
 		case 'INCREMENT':
 			return {
@@ -16,6 +16,11 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				count: state.count - 1
+			};
+		case 'INPUT_CHANGE':
+			return {
+				...state,
+				inputValue: action.payload
 			};
 		default:
 			return state;
