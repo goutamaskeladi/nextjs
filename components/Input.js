@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as CounterActions from '../actions';
 
 const Input = ({ inputValue, inputChanged }) => {
 	return (
@@ -13,16 +15,12 @@ const Input = ({ inputValue, inputChanged }) => {
 
 const mapStateToProps = (state) => {
 	return {
-		inputValue: state.inputValue
+		inputValue: state.input.inputValue
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		inputChanged: (e) => {
-			dispatch({ type: 'INPUT_CHANGE', payload: e.target.value });
-		}
-	};
+	return bindActionCreators(CounterActions, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input);

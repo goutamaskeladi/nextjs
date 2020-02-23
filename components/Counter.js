@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as CounterActions from '../actions';
 
 const Counter = (props) => {
-	console.log(props);
 	return (
 		<div>
 			<h1>I am a counter</h1>
@@ -15,19 +16,12 @@ const Counter = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
-		count: state.count
+		count: state.counter.count
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		onIncrementClick: () => {
-			dispatch({ type: 'INCREMENT' });
-		},
-		onDecrementClick: () => {
-			dispatch({ type: 'DECREMENT' });
-		}
-	};
+	return bindActionCreators(CounterActions, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

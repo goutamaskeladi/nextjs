@@ -1,15 +1,17 @@
 import React from 'react';
+import store from '../store';
+import { Provider } from 'react-redux';
 import Counter from '../components/Counter';
 import Input from '../components/Input';
-import store from '../store';
 
 const index = () => {
 	return (
-		<div>
-			<Counter store={store} />
-			<hr />
-			<Input store={store} />
-		</div>
+		<Provider store={store}>
+			<div>
+				<Counter />
+				<Input />
+			</div>
+		</Provider>
 	);
 };
 
