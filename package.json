@@ -16,6 +16,7 @@
   "author": "goutam as",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.2.5",
     "next": "^9.2.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
